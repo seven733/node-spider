@@ -6,11 +6,11 @@ const articleSchema = new Schema({
   title: { type: String, index: true },
   // 描述
   description: { type: String },
-  // 笔画
+  // 期号
   num: { type: Number, default: 0 },
-  // 结构
+  // 链接
   url: { type: String },
-  // 发音
+  // 标签
   tags: { type: [String], default: [] }
 })
 
