@@ -12,7 +12,7 @@ const articleSchema = new Schema({
   url: { type: String },
   // 标签
   tags: { type: [String], default: [] }
-})
+}, { timestamps: true })
 
 const Article = mongoose.model('Article', articleSchema);
 
