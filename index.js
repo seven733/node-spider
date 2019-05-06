@@ -68,17 +68,17 @@ function getTagText(text) {
 function formatData(data, num) {
   const $ = cheerio.load(data);
   let articles = [];
-  $('#content .article').each((_, item) => {
+  $('#content .article').each((idx, item) => {
     const title = $(item).find('a').text();
     const url = $(item).find('a').attr('href');
 
     const description = $(item).find('.desc').text();
     let tags = [];
-    $(item).find('.meta span').each((_, tag) => {
+    $(item).find('.meta span').each((index, tag) => {
       let text = $(tag).text();
       if (text !== '奇舞推荐' && text) {
         text = getTagText(text.toLowerCase());
-        if (text) {
+        if (text && !_.includes(tags, text)) {
           tags.push(text);
         }
       }
